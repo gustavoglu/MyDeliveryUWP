@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="MyDeliveryUWP.Paginas.Contas.Cadastro_Conta"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyDeliveryUWP.Paginas.Contas"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ResourcesDictionarys/RD_Constantes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Page.BottomAppBar>
+        <CommandBar OverflowButtonVisibility="Collapsed">
+            <AppBarButton Name="appb_cancelar" Icon="Cancel" Click="appb_cancelar_Click" />
+            <AppBarButton Name="appb_confirmar" Icon="Accept" Click="appb_confirmar_Click" />
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
+            <RelativePanel Name="rp_principal" Padding="{StaticResource PADDING_DEFAULT}">
+                <TextBox Name="tb_contaNome" Header="Nome" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+                <ComboBox Name="cb_contaTipo" Header="Tipo de Conta" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaNome" RelativePanel.AlignLeftWithPanel="True" MinWidth="220"  />
+             
+                <TextBox Name="tb_contaDocumento" Header="Documento" Visibility="Collapsed" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="cb_contaTipo"  RelativePanel.AlignLeftWithPanel="True" MinWidth="150"  />
+                <ComboBox Name="cb_contaTipoDocumento" Header="Tipo Documento" Visibility="Collapsed" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="cb_contaTipo" RelativePanel.RightOf="tb_contaDocumento" RelativePanel.AlignRightWithPanel="True" />
+                <TextBox Name="tb_contaTelefone" Header="Telefone" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaDocumento" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+                <TextBox Name="tb_contaTelefoneAdicional" Header="Telefone Adicional" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaTelefone" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+                <TextBox Name="tb_contaEndereco" Header="Endereço" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaTelefoneAdicional" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+                <TextBox Name="tb_contaNumero" Header="Numero" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaEndereco" RelativePanel.AlignHorizontalCenterWith="tb_contaTelefoneAdicional" RelativePanel.AlignLeftWithPanel="True" MinWidth="100"  />
+                <TextBox Name="tb_contaComplemento" Header="Complemento" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaEndereco" RelativePanel.RightOf="tb_contaNumero" RelativePanel.AlignRightWithPanel="True" />
+                <TextBox Name="tb_contaBairro" Header="Bairro" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaNumero" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+                <ComboBox Name="cb_contaMunicipio" Header="Municipio" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaBairro" RelativePanel.AlignLeftWithPanel="True" MinWidth="220"  />
+                <ComboBox Name="cb_contaUF" Header="UF" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaBairro" RelativePanel.RightOf="cb_contaMunicipio" />
+                <TextBox Name="tb_contaPontoRef" Header="Ponto de Referencia" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="cb_contaMunicipio" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+                <TextBox Name="tb_contaEmail" Header="E-mail" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaPontoRef" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+                <TextBox Name="tb_contaObservacoes" Header="Observacoes" Margin="{StaticResource MARGIN_DEFAULT }" RelativePanel.Below="tb_contaEmail" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"  />
+            </RelativePanel>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

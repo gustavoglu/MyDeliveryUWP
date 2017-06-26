@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="MyDeliveryUWP.Paginas.Produtos.Cadastro_Produto"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyDeliveryUWP.Paginas.Produtos"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ResourcesDictionarys/RD_Constantes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Name="appb_cancelar" Icon="Cancel" Click="appb_cancelar_Click"/>
+            <AppBarButton Name="appb_confirmar" Icon="Accept" Click="appb_confirmar_Click" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
+            <Pivot>
+                <PivotItem Header="Produto">
+                 <RelativePanel Name="rp_produto" Padding="{StaticResource PADDING_DEFAULT}">
+                        <TextBox Name="tb_produtoCodigo" Header="Código" Margin="{StaticResource MARGIN_DEFAULT}" MinWidth="150" RelativePanel.AlignLeftWithPanel="True" ></TextBox>
+                        <TextBox Name="tb_produtoDescricao" Header="Descrição do Produto" Margin="{StaticResource MARGIN_DEFAULT}" RelativePanel.Below="tb_produtoCodigo" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" ></TextBox>
+                        <ComboBox Name="cb_produtoTipo" Header="Tipo do Produto" Margin="{StaticResource MARGIN_DEFAULT}" MinWidth="200" RelativePanel.Below="tb_produtoDescricao" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" ></ComboBox>
+                        <TextBox Name="tb_produtoPreco" Header="Preço" Margin="{StaticResource MARGIN_DEFAULT}" RelativePanel.Below="cb_produtoTipo" RelativePanel.AlignLeftWithPanel="True"  RelativePanel.AlignRightWith="tb_produtoCodigo" ></TextBox>
+                    </RelativePanel>
+                </PivotItem>
+                <PivotItem Header="Adicionais">
+                    <RelativePanel Name="rp_adicionais">
+                        <ListView Name="listV_Adicionais" Header="Adicionais" IsMultiSelectCheckBoxEnabled="True"></ListView>
+                    </RelativePanel>
+                </PivotItem>
+                <PivotItem Header="Estoque">
+                    <RelativePanel Name="rp_estoque" Margin="{StaticResource PADDING_DEFAULT}" >
+                        <TextBox Name="tb_precoCusto" Header="Preço de Custo" Margin="{StaticResource MARGIN_DEFAULT}"/>
+                        <StackPanel Name="sp_margemLucro" RelativePanel.RightOf="tb_precoCusto" Margin="{StaticResource MARGIN_DEFAULT}">
+                            <TextBlock Name="t_margemLucro_h" Text="Margem de Lucro"/>
+                            <TextBlock Name="t_margemLucro" Text="0%(R$ 0,00)" Margin="{StaticResource MARGIN_DEFAULT}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <TextBox Name="tb_saldoAtual" Header="Saldo Atual" Margin="{StaticResource MARGIN_DEFAULT}" RelativePanel.Below="sp_margemLucro" RelativePanel.AlignRightWith="tb_precoCusto" RelativePanel.AlignLeftWithPanel="True"/>
+                        <ComboBox Name="cb_unidade" Header="Unidade" Margin="{StaticResource MARGIN_DEFAULT}" RelativePanel.Below="sp_margemLucro" RelativePanel.RightOf="tb_saldoAtual" RelativePanel.AlignRightWith="sp_margemLucro"/>
+                        <TextBox Name="tb_qtdAlerta" Header="Qtd Alerta pouco Estoque" Margin="{StaticResource MARGIN_DEFAULT}" RelativePanel.Below="tb_saldoAtual"/>
+                        <ToggleSwitch Name="ts_vendido" Header="Este Produto sera vendido?" RelativePanel.Below="tb_qtdAlerta"  Margin="{StaticResource MARGIN_DEFAULT}" OffContent="Não"  OnContent="Sim"></ToggleSwitch>
+                        <ToggleSwitch Name="ts_baixa" Header="Dar baixa no estoque ao Vendar?" RelativePanel.Below="ts_vendido"  Margin="{StaticResource MARGIN_DEFAULT}" OffContent="Não"  OnContent="Sim"></ToggleSwitch>
+                        <ToggleSwitch Name="ts_alterarValor" Header="Permitir alterar o valor na hora da Venda?" RelativePanel.Below="ts_baixa"  Margin="{StaticResource MARGIN_DEFAULT}" OffContent="Não"  OnContent="Sim"></ToggleSwitch>
+                        <ToggleSwitch Name="ts_sabor" Header="Adicional como sabor?" RelativePanel.Below="ts_alterarValor"  Margin="{StaticResource MARGIN_DEFAULT}" OffContent="Não"  OnContent="Sim"></ToggleSwitch>
+                    </RelativePanel>
+                </PivotItem>
+            </Pivot>
+        </ScrollViewer>
+    </Grid>
+</Page>
